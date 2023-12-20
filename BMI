@@ -14,3 +14,39 @@ if(BMI>0):
 		print("you are overweight")
 	else: print("you are severely overweight")
 else:("enter valid details")
+
+def calculate_calories(roti, rice, dal, chicken, eggs, almonds, bananas=1):
+    # Caloric values per specified quantity for each food item
+    cal_per_unit = {
+        'roti': 70,  # Calories per roti (medium-sized)
+        'rice': 130,  # Calories per 100g
+        'dal': 116,  # Calories per 100g
+        'chicken': 165,  # Calories per 100g
+        'eggs': 68,  # Calories per egg (medium-sized, boiled)
+        'almonds': 576,  # Calories per 100g
+        'banana': 89  # Calories per banana
+    }
+
+    # Calculate total calories
+    total_calories = (
+        (roti * cal_per_unit['roti']) +
+        (rice / 100 * cal_per_unit['rice']) +
+        (dal / 100 * cal_per_unit['dal']) +
+        (chicken / 100 * cal_per_unit['chicken']) +
+        (eggs * cal_per_unit['eggs']) +
+        (almonds / 100 * cal_per_unit['almonds']) +
+        (bananas * cal_per_unit['banana'])
+    )
+
+    return total_calories
+
+# Get user input
+roti_qty = float(input("Enter the number of rotis: "))
+rice_qty = float(input("Enter the quantity of rice in grams: "))
+dal_qty = float(input("Enter the quantity of dal in grams: "))
+chicken_qty = float(input("Enter the quantity of chicken in grams: "))
+eggs_qty = float(input("Enter the number of eggs: "))
+almonds_qty = float(input("Enter the quantity of almonds in grams: "))
+
+total_calories = calculate_calories(roti_qty, rice_qty, dal_qty, chicken_qty, eggs_qty, almonds_qty)
+print(f'Total calories: {total_calories} kcal')
