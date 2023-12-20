@@ -1,0 +1,93 @@
+def calculate_calories(roti, rice, dal, chicken, eggs, banana):
+    # Caloric values per specified quantity for each food item
+    cal_per_unit = {
+        'roti': 70,  # Calories per roti (medium-sized)
+        'rice': 130,  # Calories per 100g
+        'dal': 116,  # Calories per 100g
+        'chicken': 165,  # Calories per 100g
+        'eggs': 68,  # Calories per egg (medium-sized, boiled)
+        'banana': 89  # Calories per banana
+    }
+
+    # Calculate total calories
+    total_calories = (
+        (roti * cal_per_unit['roti']) +
+        (rice / 100 * cal_per_unit['rice']) +
+        (dal / 100 * cal_per_unit['dal']) +
+        (chicken / 100 * cal_per_unit['chicken']) +
+        (eggs * cal_per_unit['eggs']) +
+        (banana * cal_per_unit['banana'])
+    )
+
+    return total_calories
+
+# Get user input for BMI calculation
+height = float(input("Enter your height in centimeters: "))
+weight = float(input("Enter your weight in Kg: "))
+height = height / 100
+bmi = weight / (height * height)
+print("Your Body Mass Index is:", bmi)
+
+# Check BMI category
+if 0 < bmi:
+    if bmi <= 16:
+        print("You are severely underweight.")
+        print("Considering your severe underweight condition, it's important to focus on a nutritionally balanced diet.")
+        print("Please consult with a healthcare professional or dietitian for personalized advice.")
+
+    elif bmi <= 18.5:
+        print("You are underweight.")
+        print("Hey there! Your health journey matters, and I'm here to help.")
+        print("If you're underweight or overweight, let's chat about your diet.")
+        print("Together, we'll make positive changes tailored just for you! #WellnessJourney")
+
+        # Ask for calories intake
+        roti_qty = float(input("Enter the number of rotis: "))
+        rice_qty = float(input("Enter the quantity of rice in grams: "))
+        dal_qty = float(input("Enter the quantity of dal in grams: "))
+        chicken_qty = float(input("Enter the quantity of chicken in grams: "))
+        eggs_qty = float(input("Enter the number of eggs: "))
+        banana_qty = float(input("Enter the quantity of bananas: "))
+        
+        total_calories = calculate_calories(roti_qty, rice_qty, dal_qty, chicken_qty, eggs_qty, banana_qty)
+        print(f'Total calories: {total_calories} kcal')
+        print("Tip: Gain weight gradually by adding healthy calories – you could try adding around 300 to 500 extra calories a day.")
+        print("Thank you for using BodyVitalStats! 🌟")
+        print("We appreciate your commitment to monitoring your health.")
+        print("Good luck on your wellness journey, and remember, your health is your wealth!")
+
+    elif bmi <= 25:
+        print("You are healthy!")
+        print("Congratulations on maintaining a healthy BMI! Keep up the good work and continue making mindful choices to support your well-being.")
+        print("Thank you for using BodyVitalStats! 🌟")
+        print("We appreciate your commitment to monitoring your health.")
+        print("Good luck on your wellness journey, and remember, your health is your wealth!")
+
+    elif bmi <= 30:
+        print("You are overweight.")
+        print("Hey there! Your health journey matters, and I'm here to help.")
+        print("If you're underweight or overweight, let's chat about your diet.")
+        print("Together, we'll make positive changes tailored just for you! #WellnessJourney")
+
+        # Ask for calories intake
+        roti_qty = float(input("Enter the number of rotis: "))
+        rice_qty = float(input("Enter the quantity of rice in grams: "))
+        dal_qty = float(input("Enter the quantity of dal in grams: "))
+        chicken_qty = float(input("Enter the quantity of chicken in grams: "))
+        eggs_qty = float(input("Enter the number of eggs: "))
+        banana_qty = float(input("Enter the quantity of bananas: "))
+        
+        total_calories = calculate_calories(roti_qty, rice_qty, dal_qty, chicken_qty, eggs_qty, banana_qty)
+        print(f'Total calories: {total_calories} kcal')
+
+        print("Tip: For most people with overweight, cutting about 500 calories a day is a good place to start.")
+        print("If you can eat 500 fewer calories every day, you should lose about a pound (450 g) a week.")
+        print("Thank you for using BodyVitalStats! 🌟")
+        print("We appreciate your commitment to monitoring your health.")
+        print("Good luck on your wellness journey, and remember, your health is your wealth!")
+
+    else:
+        print("You are severely overweight.")
+        print("Considering your severe overweight condition, it's strongly recommended to consult with a professional dietitian for personalized guidance and support on your journey to better health.")
+else:
+    print("Enter valid details.")
